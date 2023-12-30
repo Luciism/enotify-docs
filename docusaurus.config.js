@@ -22,6 +22,8 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'luciism', // Usually your GitHub org/user name.
   projectName: 'enotify-docs', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -58,7 +60,7 @@ const config = {
       navbar: {
         title: 'Enotify Docs',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Enotify Logo',
           src: 'img/logo.svg',
         },
         items: [
