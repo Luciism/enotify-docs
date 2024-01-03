@@ -74,6 +74,11 @@ const config = {
             label: 'Getting Started',
           },
           {
+            href: 'https://enotify.lucism.dev/',
+            label: 'Home',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/luciism/enotify',
             label: 'GitHub',
             position: 'right',
@@ -108,6 +113,10 @@ const config = {
           {
             title: 'More',
             items: [
+              {
+                href: 'https://enotify.lucism.dev/',
+                label: 'Home',
+              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/luciism/enotify',
