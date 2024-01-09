@@ -1,0 +1,74 @@
+---
+sidebar_position: 6
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+# Configuring Nginx
+
+If you followed the previous steps correctly, you should now have your own instance of Enotify up and running with a discord bot and website.
+
+By default, the website runs on port `8000` but can otherwise be configured in the `.env` file. It can be served directly (with the correctly configuring DNS), or optionally you can configure **Nginx** as a reverse proxy in order to serve the website on port `80` and/or `443`.
+
+In this example we will be using `example.com` as our hostname for Enotify's website, make sure to replace this with the hostname that you will be using.
+
+
+<Tabs>
+  <TabItem value="linux" label="Linux" default>
+    ## Installation
+
+    1\. Install **Nginx**.
+
+    ```bash
+    sudo apt update
+    sudo apt install nginx
+    ```
+
+    <br />
+
+    2\. Remove the default Nginx page.
+
+    ```bash
+    sudo rm /etc/nginx/sites-enabled/default
+    ```
+
+    <br />
+
+    3\. Create a custom Nginx config.
+
+    ```bash
+    sudo nano /etc/nginx/sites-enabled/example
+    ```
+    ```conf title='/etc/nginx/sites-enabled/example'
+    server {
+        server_name example.com;  # replace with your own hostname
+
+        location / {
+            proxy_pass http://127.0.0.1:8000;  # change port if you have configured it otherwise
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+    }
+    ```
+
+    <br />
+
+    4\. Reload Nginx.
+
+    ```bash
+    sudo service nginx restart
+    ```
+
+:::note
+Make sure that you have port forwarded ports `80` and/or `443` if applicable.
+:::
+
+    <br />
+
+    ## Resources
+
+    To setup SSL for HTTPS, see [this guide](https://certbot.eff.org/instructions?ws=nginx).
+  </TabItem>
+</Tabs>

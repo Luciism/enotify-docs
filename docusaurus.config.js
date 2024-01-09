@@ -69,9 +69,15 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'getStarted',
             position: 'left',
             label: 'Getting Started',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'selfHostGuide',
+            position: 'left',
+            label: 'Self Host',
           },
           {
             href: 'https://enotify.lucism.dev/',
@@ -94,6 +100,10 @@ const config = {
               {
                 label: 'Getting Started',
                 to: '/',
+              },
+              {
+                label: 'Self Host',
+                to: '/self-host',
               },
             ],
           },

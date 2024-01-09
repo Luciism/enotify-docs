@@ -1,0 +1,63 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Configuring the Repository
+
+## Cloning the repository
+Start off by cloning the **Enotify Github repository**
+```bash
+git clone https://github.com/Luciism/enotify
+```
+
+## Setting up the repository
+### 1. Rename the `.env.example` file to `.env`
+<Tabs>
+  <TabItem value="linux" label="Linux" default>
+    ```bash
+    mv .env.example .env
+    ```
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+    ```bash
+    rename .env.example .env
+    ```
+  </TabItem>
+</Tabs>
+
+
+<br />
+
+
+### 2. Set environment variables
+- `base_url`: The base URL that you will be hosting your instance of Enotify's website on, including the protocol. In this example we will be using `https://example.com`.
+- `flask_secret_key`: A randomly generated string used by the website to encrypt session cookies.
+- `website_port`: The port that the website will be served on (`8000` by default).
+- `database_encryption_key`: A randomly generated string used to encrypt sensitive data in the database.
+- `POSTGRES_HOST`: The hostname of the postgres database instance you are using for Enotify.
+- `POSTGRES_PORT`: The port of the postgres database instance you are using for Enotify.
+- `POSTGRES_DB`: The name of the postgres database instance you are using for Enotify.
+- `POSTGRES_USER`: The username for the postgres database instance you are using for Enotify.
+- `POSTGRES_PASSWORD`: The password for the postgres database instance you are using for Enotify.
+
+
+<br />
+
+:::tip
+Secrets keys can be generated with python:
+<Tabs>
+  <TabItem value="linux" label="Linux" default>
+    ```bash
+    python3 -c "import os; print(os.urandom(50).hex())"
+    ```
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+    ```bash
+    py -c "import os; print(os.urandom(50).hex())"
+    ```
+  </TabItem>
+</Tabs>
+:::
