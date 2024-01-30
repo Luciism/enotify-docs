@@ -47,6 +47,17 @@ Make sure **Enable authentication** is checked, then select an available service
 
 <br />
 
+Set **Message retention duration** to `1 Days`, `0 Hours`, and `0 Minutes`.
+
+:::warning
+You will be billed for messages retained for any period longer than 24 hours!
+:::
+
+![img](configuring-pubsub-images/image-11.png)
+
+
+<br />
+
 Under **Expiration period**, select **Never expire**.
 
 ![img](configuring-pubsub-images/image-9.png)
